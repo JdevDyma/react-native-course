@@ -7,13 +7,14 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash/splash-screen.png",
+      "image": "./assets/splash/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
-      "**/*"
+      "**/**/*"
     ],
     "ios": {
       "supportsTablet": true,
@@ -21,6 +22,7 @@
       "buildNumber": "5"
     },
     "android": {
+      
       "versionCode": 8,
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {

@@ -5,6 +5,7 @@ import VerticalCard from "../../ui-components/cards/VerticalCard";
 import ListItemSeparator from "../../ui-components/separators/ListItemSeparator";
 import { spaces } from "../../constants/spaces";
 import { useEffect } from "react";
+import { SCREEN_HEIGHT } from "../../constants/sizes";
 
 export default function List({ route, navigation }) {
   const data = shoes.find((elem) => elem.brand === route.params.brand);
@@ -29,31 +30,33 @@ export default function List({ route, navigation }) {
     </View>
   );
   return (
-    <FlatList
-      data={data.stock}
-      keyExtractor={(item) => item.id}
-      renderItem={renderItem}
-      numColumns={2}
-      style={styles.container}
-      ItemSeparatorComponent={<ListItemSeparator height={spaces.L} />}
-      contentContainerStyle={styles.contentStyle}
-    />
+    <View style={styles.container}>
+      <FlatList
+        data={data.stock}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        ItemSeparatorComponent={<ListItemSeparator height={spaces.L} />}
+        contentContainerStyle={styles.contentStyle} // Ajoute un padding en bas
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.LIGHT,
-    paddingTop: spaces.L,
-  },
-  contentStyle: {
-    paddingBottom: spaces.XL,
+    height: SCREEN_HEIGHT,
+    paddingVertical: spaces.L,
+    paddingBottom: 106,
   },
   cardContainer: {
     flex: 0.5,
     height: 240,
     justifyContent: "center",
     alignItems: "center",
+  },
+  contentStyle: {
+    paddingBottom: spaces.XL,
   },
 });

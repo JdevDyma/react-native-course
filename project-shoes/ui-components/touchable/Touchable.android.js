@@ -10,7 +10,7 @@ export default function Touchable({
   return (
     <TouchableNativeFeedback
       style={styles}
-      background={TouchableNativeFeedback.Ripple(color, true)}
+      background={TouchableNativeFeedback.Ripple(color, false)}
       onPress={onPress}
     >
       {children}

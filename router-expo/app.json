@@ -4,15 +4,14 @@
     "slug": "router-expo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash-screen.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "scheme": "router-expo",
+    "scheme": "your-app-scheme",
     "splash": {
-      "image": "./assets/splash-screen.png",
-      "resizeMode": "cover",
-      "enableFullScreenImage_legacy": true,
-      "backgroundColor": "#fff"
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true

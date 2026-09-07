@@ -1,7 +1,7 @@
 {
   "name": "rncourse",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,15 +9,21 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~49.0.15",
-    "expo-status-bar": "~1.6.0",
-    "react": "18.2.0",
-    "react-native": "0.72.6"
+    "expo": "~57.0.20",
+    "expo-status-bar": "~57.0.1",
+    "expo-splash-screen": "~57.0.8",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-dom": "19.2.3",
+    "react-native-web": "~0.21.0",
+    "@expo/metro-runtime": "~57.0.15",
+    "@react-native-async-storage/async-storage": "2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@react-native-async-storage/async-storage": "^1.21.0",
-    "reactotron-react-native": "^5.0.5"
+    "@babel/core": "^7.29.7",
+    "babel-preset-expo": "~57.0.10",
+    "reactotron-react-native": "5.3.1"
   },
   "private": true
 }

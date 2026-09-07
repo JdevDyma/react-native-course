@@ -1,11 +1,8 @@
 import {
-  Modal,
-  KeyboardAvoidingView,
-  View,
-  Image,
-  TextInput,
-  StyleSheet,
+  Modal, KeyboardAvoidingView, Platform, View, Image,
+  TextInput, StyleSheet,
 } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import CustomBtn from "./UI/CustomBtn";
 
 export default function CustomModal({
@@ -16,26 +13,38 @@ export default function CustomModal({
   onCloseModal,
 }) {
   return (
-    <Modal visible={isModalVisible} animationType="slide">
-      <KeyboardAvoidingView style={styles.keyboardView} behavior="height">
-        <View style={styles.modalView}>
-          <Image
-            source={require("../assets/logo-react-native.png")}
-            style={styles.image}
-          />
-          <View style={styles.formContainer}>
-            <TextInput
-              value={inputValue}
-              onChangeText={setInputValue}
-              style={styles.input}
+    <Modal
+      visible={isModalVisible}
+      animationType="slide"
+      onRequestClose={onCloseModal}
+    >
+      <SafeAreaProvider>
+        <KeyboardAvoidingView
+          style={styles.keyboardView}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+          <SafeAreaView style={styles.modalView}>
+            <Image
+              source={require("../assets/logo-react-native.png")}
+              style={styles.image}
+              resizeMode="contain"
+              alt="Logo React Native"
             />
-            <View style={styles.modalBtnContainer}>
-              <CustomBtn text="Créer" onPress={onCreateItem} color="blue" />
-              <CustomBtn text="Fermer" onPress={onCloseModal} color="black" />
+            <View style={styles.formContainer}>
+              <TextInput
+                accessibilityLabel="Texte du nouvel élément"
+                value={inputValue}
+                onChangeText={setInputValue}
+                style={styles.input}
+              />
+              <View style={styles.modalBtnContainer}>
+                <CustomBtn text="Créer" onPress={onCreateItem} color="blue" />
+                <CustomBtn text="Fermer" onPress={onCloseModal} color="black" />
+              </View>
             </View>
-          </View>
-        </View>
-      </KeyboardAvoidingView>
+          </SafeAreaView>
+        </KeyboardAvoidingView>
+      </SafeAreaProvider>
     </Modal>
   );
 }
@@ -54,6 +63,8 @@ const styles = StyleSheet.create({
   image: {
     width: 260,
     height: 260,
+    maxWidth: "100%",
+    flexShrink: 1,
     borderRadius: 12,
   },
   formContainer: {
@@ -61,11 +72,12 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
+    minHeight: 44,
     backgroundColor: "white",
+    color: "black",
     borderWidth: 1,
     borderColor: "grey",
     borderRadius: 8,
-    height: 42,
     fontSize: 20,
     paddingHorizontal: 8,
     paddingVertical: 4,

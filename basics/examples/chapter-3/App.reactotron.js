@@ -1,9 +1,13 @@
 import { useRef, useState } from "react";
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import CustomModal from "./components/CustomModal";
-import ItemsList from "./components/ItemsList";
-import ModalOpener from "./components/ModalOpener";
+import CustomModal from "../../components/CustomModal";
+import ItemsList from "../../components/ItemsList";
+import ModalOpener from "../../components/ModalOpener";
+
+if (__DEV__) {
+  require("./ReactotronConfig");
+}
 
 export default function App() {
   const [inputValue, setInputValue] = useState("");
@@ -12,6 +16,11 @@ export default function App() {
   const nextId = useRef(1);
 
   const onOpenModal = () => {
+    if (__DEV__) {
+      console.log("Ouverture du formulaire");
+      const Reactotron = require("reactotron-react-native").default;
+      Reactotron.log("Message réservé à Reactotron");
+    }
     setModalVisible(true);
   };
 
@@ -30,10 +39,28 @@ export default function App() {
     setModalVisible(false);
   };
 
+  const onTestRequest = async () => {
+    if (!__DEV__) return;
+
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("Réponse reçue", data);
+    } catch (error) {
+      console.warn("La requête a échoué", error.message);
+    }
+  };
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
         <ModalOpener onOpenModal={onOpenModal} />
+        {__DEV__ && (
+          <Button title="Tester la requête" onPress={onTestRequest} />
+        )}
         <ItemsList data={inputResult} />
       </SafeAreaView>
       <CustomModal

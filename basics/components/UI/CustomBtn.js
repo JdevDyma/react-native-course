@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, StyleSheet } from "react-native";
 export default function CustomBtn({ text, onPress, color }) {
   return (
     <TouchableOpacity
+      accessibilityRole="button"
       style={[styles.modalBtns, { backgroundColor: color }]}
       onPress={onPress}
     >
@@ -14,7 +15,8 @@ export default function CustomBtn({ text, onPress, color }) {
 const styles = StyleSheet.create({
   modalBtns: {
     width: "40%",
-    height: 50,
+    minHeight: 50,
+    paddingVertical: 8,
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",

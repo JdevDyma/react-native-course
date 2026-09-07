@@ -4,15 +4,15 @@ export default function ItemsList({ data }) {
   return (
     <View style={styles.resultContainer}>
       <FlatList
+        style={styles.list}
         showsVerticalScrollIndicator={false}
         data={data}
-        renderItem={({ item }) => {
-          return (
-            <View style={styles.itemContainer}>
-              <Text style={styles.item}>{item}</Text>
-            </View>
-          );
-        }}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.itemContainer}>
+            <Text style={styles.item}>{item.text}</Text>
+          </View>
+        )}
       />
     </View>
   );
@@ -24,14 +24,20 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 8,
   },
-  itemContainer: {
+  list: {
+    flex: 1,
     width: "100%",
-    height: 38,
+  },
+  itemContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    minHeight: 38,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
     marginVertical: 12,
     borderRadius: 8,
     backgroundColor: "rgba(0,0,0,0.75)",
-    justifyContent: "center",
-    alignItems: "center",
   },
   item: {
     color: "white",

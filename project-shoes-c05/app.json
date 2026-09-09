@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Shoes - Chapitre 5",
+    "slug": "shoes-chapitre-5",
+    "version": "1.0.0",
+    "userInterfaceStyle": "light",
+    "orientation": "portrait",
+    "android": {
+      "softwareKeyboardLayoutMode": "resize"
+    }
+  }
+}

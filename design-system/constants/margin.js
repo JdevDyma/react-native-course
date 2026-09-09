@@ -1,3 +1,3 @@
 export const margin = {
-  VERTICAL_SEPARATOR: 6,
+  VERTICAL_SEPARATOR: 8,
 };

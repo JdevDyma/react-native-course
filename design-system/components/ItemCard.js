@@ -22,14 +22,14 @@ export default function ItemCard({ color, Logo, title, description }) {
 const styles = StyleSheet.create({
   card: {
     width: "100%",
-    height: 140,
+    minHeight: 140,
     borderWidth: 1,
     borderRadius: radius.MEDIUM,
     padding: CARD_PADDING,
   },
   cardContent: {
-    width: "100%",
-    height: "100%",
+    flexGrow: 1,
+    minHeight: 110,
     borderRadius: radius.MEDIUM,
     backgroundColor: colors.LIGHT,
     flexDirection: "row",
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    height: "100%",
     paddingLeft: CARD_PADDING,
     justifyContent: "space-evenly",
+    gap: 6,
   },
 });

@@ -6,7 +6,5 @@ export default function ListItemSeparator() {
 }
 
 const styles = StyleSheet.create({
-  separator: {
-    marginVertical: margin.VERTICAL_SEPARATOR,
-  },
+  separator: { marginVertical: margin.VERTICAL_SEPARATOR },
 });

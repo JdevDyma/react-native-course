@@ -9,14 +9,14 @@ export const data = [
   {
     id: "ased45",
     title: "L'ADN pour les nuls",
-    description: "Premier chapitre - qui a découvert l'ADN ?",
+    description: "Premier chapitre : qui a découvert l'ADN ?",
     logo: ADNIcon,
     color: colors.VIOLET,
   },
   {
     id: "ased78",
     title: "Les bases de la biologie",
-    description: "Premier chapitre - Quel est le rôle du coeur",
+    description: "Premier chapitre : Quel est le rôle du cœur ?",
     logo: HeartIcon,
     color: colors.PURPLE,
   },
@@ -32,7 +32,7 @@ export const data = [
     id: "ased99",
     title: "La physique quantique",
     description:
-      "Et si nous ne n'étions qu'au début des découvertes scientifiques ...",
+      "Et si nous n'étions qu'au début des découvertes scientifiques ?",
     logo: GeneticIcon,
     color: colors.GREY,
   },

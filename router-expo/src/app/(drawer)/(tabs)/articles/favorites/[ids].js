@@ -1,88 +1,64 @@
-import {
-  Link,
-  useLocalSearchParams,
-  useNavigation,
-  useRouter,
-} from "expo-router"
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
-import { articeStyles } from "../_layout"
-import { colors } from "../../../../../constants/colors"
-import { useEffect } from "react"
+import { useCallback } from "react";
+import { useBottomTabBarHeight } from "expo-router/js-tabs";
+import { Link, useLocalSearchParams, useRouter, useNavigation, useFocusEffect } from "expo-router";
+import { Pressable, ScrollView, StyleSheet, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { articlesStyles } from "../../../../../styles/articles";
+import { colors } from "../../../../../constants/colors";
 
-export default function FavoritesPage() {
-  const params = useLocalSearchParams()
-  const ids = JSON.parse(params.ids)
-
-  const router = useRouter()
-  const navigation = useNavigation()
-
-  useEffect(() => {
-    navigation.getParent().setOptions({
-      title: "Articles favoris",
-      tabBarLabel: "Articles",
-    })
-    return () => {
-      navigation.getParent().setOptions({
-        title: "Articles",
-        tabBarLabel: "Articles",
-      })
+export default function FavoritesArticlesPage() {
+  const router = useRouter();
+  function returnToArticles() {
+    router.dismissTo("/articles");
+  }
+  const { ids } = useLocalSearchParams();
+  let favoriteIds = null;
+  if (typeof ids === "string") {
+    try {
+      const value = JSON.parse(ids);
+      if (Array.isArray(value) && value.every((id) => typeof id === "string" && id.length > 0)) {
+        favoriteIds = value;
+      }
+    } catch {
+      // Une URL peut contenir un texte qui n’est pas un JSON valide.
     }
-  }, [navigation])
+  }
+  const navigation = useNavigation();
+  const tabBarHeight = useBottomTabBarHeight();
+  useFocusEffect(useCallback(() => {
+    navigation.getParent().setOptions({ title: "Articles favoris" });
+  }, [navigation]));
   return (
-    <View style={[styles.container, articeStyles.borderTopPage]}>
-      <Text style={styles.title}>Les articles favoris</Text>
-      {ids.map((id) => (
-        <Text style={styles.idsText} key={id}>
-          {id}
-        </Text>
-      ))}
-      <TouchableOpacity style={styles.link} onPress={() => router.back()}>
-        <Text style={styles.text}>Revenir à tous les articles</Text>
-      </TouchableOpacity>
-      <Link href="/" style={styles.link}>
-        <Text style={styles.text}>Revenir sur l'écran de bienvenue</Text>
-      </Link>
-      <Link
-        href={{
-          pathname: "/articles/[id]",
-          params: { id: "6534", dismissCount: 2 },
-        }}
-        style={styles.link}
-      >
-        <Text style={styles.text}>Lire l'article</Text>
-      </Link>
-    </View>
-  )
+    <SafeAreaView edges={["left", "right"]} style={[styles.screen, articlesStyles.borderTopPage]}>
+      <ScrollView contentContainerStyle={[styles.container, { paddingBottom: 24 + tabBarHeight }]}>
+        <Text style={styles.title}>Les articles favoris</Text>
+        {favoriteIds === null ? (
+          <Text style={styles.text}>Les identifiants reçus sont invalides.</Text>
+        ) : favoriteIds.length === 0 ? (
+          <Text style={styles.text}>Aucun article favori.</Text>
+        ) : favoriteIds.map((id, index) => (
+          <Text key={`${id}-${index}`} style={styles.text}>{id}</Text>
+        ))}
+        <Pressable style={styles.link} accessibilityRole="button" onPress={returnToArticles}>
+          <Text style={styles.linkText}>Revenir sur tous les articles</Text>
+        </Pressable>
+        <Link href={{ pathname: "/articles/[id]", params: { id: "34543" } }} push asChild>
+          <Pressable style={styles.link}><Text style={styles.linkText}>Lire l’article</Text></Pressable>
+        </Link>
+        <Link href="/" asChild>
+          <Pressable style={styles.link}><Text style={styles.linkText}>Revenir sur l’écran de bienvenue</Text></Pressable>
+        </Link>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 24,
-  },
-
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: colors.light,
-  },
-  link: {
-    padding: 16,
-    backgroundColor: colors.primary,
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 12,
-  },
-  text: {
-    color: colors.dark,
-    fontSize: 20,
-  },
-  idsText: {
-    color: colors.light,
-    fontSize: 18,
-  },
-})
+  screen: { flex: 1, backgroundColor: colors.dark },
+  container: { flexGrow: 1, alignItems: "center", justifyContent: "center", padding: 24 },
+  title: { fontSize: 32, fontWeight: "bold", textAlign: "center", color: colors.light },
+  text: { color: colors.light, fontSize: 18, textAlign: "center" },
+  link: { padding: 16, minHeight: 48, minWidth: 48, maxWidth: "100%", backgroundColor: colors.primary,
+    borderRadius: 8, alignItems: "center", justifyContent: "center", marginTop: 12 },
+  linkText: { color: colors.dark, fontSize: 20, textAlign: "center" },
+});

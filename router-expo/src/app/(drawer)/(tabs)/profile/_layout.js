@@ -1,24 +1,20 @@
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
-import ProfilePage from "."
-import SettingsPage from "./settings"
-import { withLayoutContext } from "expo-router"
-import { colors } from "../../../../constants/colors"
+import { createMaterialTopTabNavigator } from "expo-router/js-top-tabs";
+import { withLayoutContext } from "expo-router";
+import { colors } from "../../../../constants/colors";
 
-const Tab = createMaterialTopTabNavigator().Navigator
-
-export const TopTabs = withLayoutContext(Tab)
+const Navigator = createMaterialTopTabNavigator().Navigator;
+const TopTabs = withLayoutContext(Navigator);
 
 export default function TopTabsLayout() {
   return (
-    <TopTabs
-      screenOptions={{
-        tabBarIndicatorStyle: {
-          backgroundColor: colors.primary,
-        },
-      }}
-    >
+    <TopTabs initialRouteName="index" screenOptions={{
+      tabBarIndicatorStyle: { backgroundColor: colors.primary },
+      tabBarActiveTintColor: colors.dark,
+      tabBarInactiveTintColor: colors.dark,
+      tabBarStyle: { backgroundColor: colors.light },
+    }}>
       <TopTabs.Screen name="index" options={{ title: "Informations" }} />
       <TopTabs.Screen name="settings" options={{ title: "Réglages" }} />
     </TopTabs>
-  )
+  );
 }

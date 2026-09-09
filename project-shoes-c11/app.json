@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "project-shoes-c11",
+    "slug": "project-shoes-c11",
+    "version": "1.0.0",
+    "userInterfaceStyle": "light",
+    "orientation": "portrait",
+    "android": {
+      "softwareKeyboardLayoutMode": "resize"
+    }
+  }
+}

@@ -1,19 +1,13 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Screen3({ route }) {
-  const { name } = route.params;
+  const insets = useSafeAreaInsets();
+  const name = typeof route.params?.name === "string" ? route.params.name : "visiteur";
   return (
-    <Pressable style={styles.container}>
+    <View style={[styles.container, { paddingLeft: insets.left, paddingRight: insets.right }]}>
       <Text>Settings {name}</Text>
-    </Pressable>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({ container: { flex: 1, backgroundColor: "#fff", alignItems: "center", justifyContent: "center" } });

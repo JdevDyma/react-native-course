@@ -1,20 +1,20 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { useEffect } from "react";
+import { ScrollView, StyleSheet, Text } from "react-native";
 
 export default function Screen5({ route }) {
-  console.log("screen 5");
+  useEffect(() => {
+    console.log("screen 5");
+  }, []);
+  const name = typeof route.params?.name === "string" ? route.params.name : "Lecteur";
 
   return (
-    <Pressable style={styles.container}>
-      <Text>Article 2 {route.params?.name}</Text>
-    </Pressable>
+    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+      <Text>Article 2 {name}</Text>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  screen: { flex: 1, backgroundColor: "#fff" },
+  content: { flexGrow: 1, padding: 24, gap: 16, alignItems: "center", justifyContent: "center" },
 });

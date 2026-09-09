@@ -4,27 +4,31 @@ import {
   DrawerItemList,
   createDrawerNavigator,
 } from "@react-navigation/drawer";
-import Screen7 from "../screens/Screen7";
-import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { Pressable } from "react-native";
+import { AntDesign } from "@react-native-vector-icons/ant-design";
+import { Ionicons } from "@react-native-vector-icons/ionicons";
+import { MaterialIcons } from "@react-native-vector-icons/material-icons";
+import { Pressable, StyleSheet } from "react-native";
 import BottomTabsNavigator from "./BottomTabsNavigator";
+import Screen7 from "../screens/Screen7";
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
+      initialRouteName="Navigation"
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Group
         screenOptions={({ navigation }) => ({
           headerTitleAlign: "center",
-          drawerActiveTintColor: "white",
+          drawerActiveTintColor: "blue",
           drawerInactiveTintColor: "grey",
-
           headerLeft: () => (
             <Pressable
-              style={{ marginLeft: 16 }}
+              style={styles.headerButton}
+              accessibilityRole="button"
+              accessibilityLabel="Ouvrir le menu"
               onPress={() => navigation.openDrawer()}
             >
               <AntDesign name="menu-fold" size={24} color="black" />
@@ -40,17 +44,22 @@ export default function DrawerNavigator() {
           name="Navigation"
           options={({ navigation }) => ({
             drawerLabel: "Home",
-            drawerIcon: ({ color }) => (
-              <AntDesign name="home" size={24} color={color} />
+            drawerIcon: ({ color, size }) => (
+              <AntDesign name="home" size={size} color={color} />
             ),
             headerRight: () => (
               <Pressable
-                style={{ marginRight: 16 }}
-                onPress={() =>
-                  navigation.navigate("Screen2", {
-                    name: "john",
-                  })
-                }
+                style={styles.headerButton}
+                accessibilityRole="button"
+                accessibilityLabel="Ouvrir le profil de John"
+                onPress={() => navigation.navigate("Navigation", {
+                  screen: "Home",
+                  params: {
+                    screen: "Screen2",
+                    initial: false,
+                    params: { name: "John" },
+                  },
+                })}
               >
                 <AntDesign name="user" size={24} color="black" />
               </Pressable>
@@ -61,8 +70,8 @@ export default function DrawerNavigator() {
           component={Screen7}
           name="Notifications"
           options={{
-            drawerIcon: ({ color }) => (
-              <Ionicons name="notifications" size={24} color={color} />
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="notifications" size={size} color={color} />
             ),
           }}
         />
@@ -77,9 +86,24 @@ function CustomDrawerContent(props) {
       <DrawerItemList {...props} />
       <DrawerItem
         label="Logout"
-        onPress={() => console.log("logout")}
-        icon={() => <MaterialIcons name="logout" size={24} color="black" />}
+        onPress={() => {
+          console.log("logout");
+          props.navigation.closeDrawer();
+        }}
+        icon={({ color, size }) => (
+          <MaterialIcons name="logout" size={size} color={color} />
+        )}
       />
     </DrawerContentScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  headerButton: {
+    minWidth: 48,
+    minHeight: 48,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 4,
+  },
+});

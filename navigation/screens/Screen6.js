@@ -1,20 +1,19 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { useEffect } from "react";
+import { ScrollView, StyleSheet, Text } from "react-native";
 
 export default function Screen6() {
-  console.log("screen 6");
+  useEffect(() => {
+    console.log("screen 6");
+  }, []);
 
   return (
-    <Pressable style={styles.container}>
+    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text>Article 3</Text>
-    </Pressable>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  screen: { flex: 1, backgroundColor: "#fff" },
+  content: { flexGrow: 1, padding: 24, gap: 16, alignItems: "center", justifyContent: "center" },
 });

@@ -1,10 +1,16 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Screen7() {
+  const insets = useSafeAreaInsets();
   return (
-    <Pressable style={styles.container}>
+    <View style={[styles.container, {
+      paddingLeft: insets.left,
+      paddingRight: insets.right,
+      paddingBottom: insets.bottom,
+    }]}>
       <Text>Notifications</Text>
-    </Pressable>
+    </View>
   );
 }
 

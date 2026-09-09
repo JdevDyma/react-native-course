@@ -1,20 +1,21 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { useEffect } from "react";
+import { Button, ScrollView, StyleSheet, Text } from "react-native";
 
 export default function Screen4({ navigation }) {
-  console.log("screen 4");
-  const navigate = () => navigation.navigate("Article 2", { name: "Fred" });
+  useEffect(() => {
+    console.log("screen 4");
+  }, []);
+
   return (
-    <Pressable style={styles.container} onPress={navigate}>
+    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text>Article 1</Text>
-    </Pressable>
+      <Button title="Lire l’article 2 avec Fred"
+        onPress={() => navigation.jumpTo("Article 2", { name: "Fred" })} />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  screen: { flex: 1, backgroundColor: "#fff" },
+  content: { flexGrow: 1, padding: 24, gap: 16, alignItems: "center", justifyContent: "center" },
 });

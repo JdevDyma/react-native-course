@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Shoes - Chapitre 8",
+    "slug": "shoes-chapitre-8",
+    "version": "1.0.0",
+    "userInterfaceStyle": "light",
+    "orientation": "portrait",
+    "android": {
+      "softwareKeyboardLayoutMode": "resize"
+    }
+  }
+}

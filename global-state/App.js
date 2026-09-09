@@ -1,20 +1,21 @@
 if (__DEV__) {
   require("./ReactotronConfig");
 }
+
 import { NavigationContainer } from "@react-navigation/native";
-import StackNavigator from "./navigator/StackNavigator";
-import FavoritesContextProvider from "./context/favoritesContext";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
+import store from "./store/store";
+import StackNavigator from "./navigator/StackNavigator";
 
 export default function App() {
   return (
-    // <FavoritesContextProvider>  CONTEXT REACT
-    <Provider store={store}>
-      <NavigationContainer>
-        <StackNavigator />
-      </NavigationContainer>
-    </Provider>
-    // </FavoritesContextProvider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <NavigationContainer>
+          <StackNavigator />
+        </NavigationContainer>
+      </Provider>
+    </SafeAreaProvider>
   );
 }

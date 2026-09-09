@@ -1,11 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import favoritesReducer from "./slices/favoritesSlice";
-import reactotron from "../ReactotronConfig";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     favorites: favoritesReducer,
   },
-  enhancers: (getDefaultEnhancers) =>
-    getDefaultEnhancers().concat(reactotron.createEnhancer()),
+  enhancers: (getDefaultEnhancers) => {
+    const defaultEnhancers = getDefaultEnhancers();
+    if (__DEV__) {
+      const reactotron = require("../ReactotronConfig").default;
+      return defaultEnhancers.concat(reactotron.createEnhancer());
+    }
+    return defaultEnhancers;
+  },
 });
+
+export default store;

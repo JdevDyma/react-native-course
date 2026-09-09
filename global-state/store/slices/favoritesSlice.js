@@ -9,7 +9,9 @@ export const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, action) => {
-      state.picturesIds = [...state.picturesIds, action.payload];
+      if (!state.picturesIds.includes(action.payload)) {
+        state.picturesIds = [...state.picturesIds, action.payload];
+      }
     },
     removeFavorite: (state, action) => {
       state.picturesIds = state.picturesIds.filter(
@@ -20,4 +22,5 @@ export const favoritesSlice = createSlice({
 });
 
 export const { addFavorite, removeFavorite } = favoritesSlice.actions;
+
 export default favoritesSlice.reducer;

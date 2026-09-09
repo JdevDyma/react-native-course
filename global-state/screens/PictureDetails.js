@@ -1,47 +1,68 @@
-import { Image, StyleSheet, View } from "react-native";
-import { pictures } from "../data/data";
-import { MaterialIcons } from "@expo/vector-icons";
-import { useContext, useEffect } from "react";
-import { FavoritesContext } from "../context/favoritesContext";
+import { useCallback, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { pictures } from "../data/data";
 import { addFavorite, removeFavorite } from "../store/slices/favoritesSlice";
+import PictureImage from "../components/PictureImage";
 
-export default function PicturesDetails({ route, navigation }) {
-  // const favoritesCtx = useContext(FavoritesContext);
-  // const isFavorite = favoritesCtx.picturesIds.includes(route.params.id); REACT CONTEXT
-
+export default function PictureDetails({ route, navigation }) {
   const dispatch = useDispatch();
   const favoritesIds = useSelector((state) => state.favorites.picturesIds);
-  const isFavorite = favoritesIds.includes(route.params.id);
+  const id = route.params?.id;
+  const picture = typeof id === "string"
+    ? pictures.find((item) => item.id === id)
+    : undefined;
+  const isFavorite = picture ? favoritesIds.includes(picture.id) : false;
 
-  const uri = pictures.find((picture) => picture.id === route.params.id).url;
-
-  const toggleFavoriteStatus = () => {
+  const toggleFavoriteStatus = useCallback(() => {
+    if (!picture) return;
     if (!isFavorite) {
-      dispatch(addFavorite(route.params.id));
+      dispatch(addFavorite(picture.id));
     } else {
-      dispatch(removeFavorite(route.params.id));
+      dispatch(removeFavorite(picture.id));
     }
-  };
+  }, [picture, isFavorite, dispatch]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => (
-        <MaterialIcons
-          name={!isFavorite ? "favorite-outline" : "favorite"}
-          size={24}
-          color="black"
-          onPress={toggleFavoriteStatus}
-        />
-      ),
+      headerRight: picture
+        ? () => (
+          <Pressable
+            style={styles.favoriteButton}
+            accessibilityRole="button"
+            accessibilityLabel={isFavorite
+              ? "Retirer l’image des favoris"
+              : "Ajouter l’image aux favoris"}
+            accessibilityState={{ selected: isFavorite }}
+            onPress={toggleFavoriteStatus}
+          >
+            <MaterialIcons name={isFavorite ? "favorite" : "favorite-outline"}
+              size={24} color="black" accessible={false} />
+          </Pressable>
+        )
+        : undefined,
     });
-  }, [navigation, isFavorite]);
+  }, [navigation, picture, isFavorite, toggleFavoriteStatus]);
 
-  return <Image source={{ uri }} style={styles.image} />;
+  const insets = useSafeAreaInsets();
+  return (
+    <View style={[styles.screen, { paddingBottom: insets.bottom,
+      paddingLeft: insets.left, paddingRight: insets.right }]}>
+      {picture ? (
+        <PictureImage key={picture.url} uri={picture.url} style={styles.image}
+          label={`Image ${picture.id}`} />
+      ) : (
+        <Text style={styles.message}>Image introuvable.</Text>
+      )}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-  },
+  screen: { flex: 1, backgroundColor: "white" },
+  image: { flex: 1 },
+  message: { color: "black", textAlign: "center", padding: 24 },
+  favoriteButton: { minWidth: 48, minHeight: 48, alignItems: "center", justifyContent: "center" },
 });

@@ -1,50 +1,15 @@
-import { Stack, useRouter } from "expo-router"
-import AntDesign from "@expo/vector-icons/AntDesign"
-import { StyleSheet } from "react-native"
-import { colors } from "../../../../constants/colors"
+import { Stack } from "expo-router";
+import { colors } from "../../../../constants/colors";
 
-export default function RootLayout() {
-  const router = useRouter()
+export default function ArticlesLayout() {
   return (
-    <Stack
-      screenOptions={{
-        contentStyle: {
-          backgroundColor: colors.dark,
-        },
-        headerTintColor: colors.primary,
-        headerTitleAlign: "center",
-        headerStyle: {
-          backgroundColor: colors.dark,
-        },
-        headerLeft: () => (
-          <AntDesign
-            name="stepbackward"
-            size={24}
-            color={colors.primary}
-            onPress={() => router.back()}
-          />
-        ),
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen
-        name="index"
-        options={{
-          title: "Articles",
-        }}
-      />
-      <Stack.Screen
-        name="favorites/[ids]"
-        options={{ title: "Articles favoris" }}
-      />
+    <Stack screenOptions={{
+      headerShown: false,
+      contentStyle: { backgroundColor: colors.dark },
+    }}>
+      <Stack.Screen name="index" />
       <Stack.Screen name="[id]" />
+      <Stack.Screen name="favorites/[ids]" />
     </Stack>
-  )
+  );
 }
-
-export const articeStyles = StyleSheet.create({
-  borderTopPage: {
-    borderTopWidth: 1,
-    borderTopColor: colors.primary,
-  },
-})

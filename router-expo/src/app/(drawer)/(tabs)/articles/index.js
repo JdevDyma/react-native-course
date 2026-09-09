@@ -1,66 +1,44 @@
-import { Link, useNavigation } from "expo-router"
-import { StyleSheet, Text, View } from "react-native"
-import { colors } from "../../../../constants/colors"
-import { articeStyles } from "./_layout"
-import { useEffect } from "react"
-import { tabBarStyle } from "../_layout"
+import { useCallback } from "react";
+import { useBottomTabBarHeight } from "expo-router/js-tabs";
+import { Link, useNavigation, useFocusEffect } from "expo-router";
+import { Pressable, ScrollView, StyleSheet, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { articlesStyles } from "../../../../styles/articles";
+import { colors } from "../../../../constants/colors";
 
 export default function ArticlesPage() {
-  const navigation = useNavigation()
-
-  useEffect(() => {
-    navigation.getParent().setOptions({
-      title: "Articles",
-      tabBarLabel: "Articles",
-    })
-  }, [navigation])
-
+  const navigation = useNavigation();
+  const tabBarHeight = useBottomTabBarHeight();
+  useFocusEffect(useCallback(() => {
+    navigation.getParent().setOptions({ title: "Articles" });
+  }, [navigation]));
   return (
-    <View style={[styles.container, articeStyles.borderTopPage]}>
-      <Text style={styles.title}>Tous les articles</Text>
-      <Link
-        href={{
+    <SafeAreaView edges={["left", "right"]} style={[styles.screen, articlesStyles.borderTopPage]}>
+      <ScrollView contentContainerStyle={[styles.container, { paddingBottom: 24 + tabBarHeight }]}>
+        <Text style={styles.title}>Tous les articles</Text>
+        <Link href="/articles/1234" push asChild>
+          <Pressable style={styles.link}><Text style={styles.linkText}>Aller sur le détail de l’article</Text></Pressable>
+        </Link>
+        <Link href={{
           pathname: "/articles/favorites/[ids]",
-          params: { ids: JSON.stringify(["1234", "4563", "654356"]) },
-        }}
-        style={styles.link}
-      >
-        <Text style={styles.text}>Aller aux articles favoris</Text>
-      </Link>
-      <Link href="/" style={styles.link}>
-        <Text style={styles.text}>Revenir sur l'écran de bienvenue</Text>
-      </Link>
-      <Link href="/articles/1234" style={styles.link}>
-        <Text style={styles.text}>Aller sur le détails d'un article</Text>
-      </Link>
-    </View>
-  )
+          params: { ids: JSON.stringify(["1234", "6534", "8734"]) },
+        }} push asChild>
+          <Pressable style={styles.link}><Text style={styles.linkText}>Aller aux articles favoris</Text></Pressable>
+        </Link>
+        <Link href="/" asChild>
+          <Pressable style={styles.link}><Text style={styles.linkText}>Revenir sur l’écran de bienvenue</Text></Pressable>
+        </Link>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 24,
-  },
-
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: colors.light,
-  },
-  link: {
-    padding: 16,
-    backgroundColor: colors.primary,
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 12,
-  },
-  text: {
-    color: colors.dark,
-    fontSize: 20,
-  },
-})
+  screen: { flex: 1, backgroundColor: colors.dark },
+  container: { flexGrow: 1, alignItems: "center", justifyContent: "center", padding: 24 },
+  title: { fontSize: 32, fontWeight: "bold", textAlign: "center", color: colors.light },
+  text: { color: colors.light, fontSize: 18, textAlign: "center" },
+  link: { padding: 16, minHeight: 48, minWidth: 48, maxWidth: "100%", backgroundColor: colors.primary,
+    borderRadius: 8, alignItems: "center", justifyContent: "center", marginTop: 12 },
+  linkText: { color: colors.dark, fontSize: 20, textAlign: "center" },
+});

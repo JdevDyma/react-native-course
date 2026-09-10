@@ -1,0 +1,1 @@
+return <SplashScreen onComplete={() => {}} />;

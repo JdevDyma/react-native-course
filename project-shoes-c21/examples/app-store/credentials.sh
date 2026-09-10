@@ -1,0 +1,1 @@
+eas credentials --platform ios

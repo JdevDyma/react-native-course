@@ -1,0 +1,9 @@
+[
+  "expo-splash-screen",
+  {
+    "image": "./assets/splash/splash-screen.png",
+    "resizeMode": "contain",
+    "imageWidth": 200,
+    "backgroundColor": "#ffffff"
+  }
+]

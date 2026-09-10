@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "project-shoes-c18",
+    "slug": "project-shoes-c18",
+    "version": "1.0.0",
+    "userInterfaceStyle": "light",
+    "orientation": "portrait",
+    "android": {
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "plugins": [
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choisissez une photo de profil.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash/splash-screen.png",
+          "resizeMode": "contain",
+          "imageWidth": 200,
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "@stripe/stripe-react-native",
+        {
+          "enableGooglePay": false
+        }
+      ],
+      "expo-notifications"
+    ],
+    "scheme": "dyma-shoes",
+    "ios": {
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true,
+        "CFBundleLocalizations": [
+          "fr"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "project-shoes-c16",
+    "slug": "project-shoes-c16",
+    "version": "1.0.0",
+    "userInterfaceStyle": "light",
+    "orientation": "portrait",
+    "android": {
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "plugins": [
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true
+        }
+      ]
+    ]
+  }
+}

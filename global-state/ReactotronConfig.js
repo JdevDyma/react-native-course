@@ -5,7 +5,7 @@ import { reactotronRedux } from "reactotron-redux";
 const reactotron = Reactotron.setAsyncStorageHandler(AsyncStorage)
   .configure({ name: "Global State" })
   .use(reactotronRedux())
-  .useReactNative()
+  .useReactNative({ asyncStorage: false })
   .connect();
 
 export default reactotron;

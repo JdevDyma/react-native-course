@@ -1,0 +1,7 @@
+{
+  "expo": {
+    "android": {
+      "googleServicesFile": "./google-services.json"
+    }
+  }
+}

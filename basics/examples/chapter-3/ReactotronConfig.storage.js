@@ -3,5 +3,5 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 Reactotron.setAsyncStorageHandler(AsyncStorage)
   .configure({ name: "MonApplication" })
-  .useReactNative()
+  .useReactNative({ asyncStorage: false })
   .connect();

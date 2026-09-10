@@ -1,0 +1,936 @@
+[
+  {
+    "id": "nik43p",
+    "name": "Air Max Drift",
+    "brand": "nike",
+    "priceCents": 24900,
+    "variants": [
+      {
+        "sizes": [
+          38,
+          40,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          42,
+          43
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nik47p",
+    "name": "Air Max Gore Tex",
+    "brand": "nike",
+    "priceCents": 19900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          41,
+          42,
+          43
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          41,
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nik64p",
+    "name": "Air Vapor Max",
+    "brand": "nike",
+    "priceCents": 17900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nik84p",
+    "name": "P 6000",
+    "brand": "nike",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nik04p",
+    "name": "Pegasus",
+    "brand": "nike",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39,
+          41,
+          42,
+          43
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nik09p",
+    "name": "Ramoleos 4",
+    "brand": "nike",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39,
+          41,
+          42,
+          43
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          39,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adi3p",
+    "name": "Adipower 3",
+    "brand": "adidas",
+    "priceCents": 16900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      },
+      {
+        "sizes": [
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adi7p",
+    "name": "Adistar",
+    "brand": "adidas",
+    "priceCents": 29900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          43,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adi64p",
+    "name": "Amplimove",
+    "brand": "adidas",
+    "priceCents": 14900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          40,
+          41,
+          42
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          41
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adi84p",
+    "name": "Dropset 2",
+    "brand": "adidas",
+    "priceCents": 20900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adi97p",
+    "name": "Galaxy 6",
+    "brand": "adidas",
+    "priceCents": 17900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          39,
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adi93p",
+    "name": "Gazelles",
+    "brand": "adidas",
+    "priceCents": 28900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          41,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          43,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adi203p",
+    "name": "SL 72",
+    "brand": "adidas",
+    "priceCents": 20900,
+    "variants": [
+      {
+        "sizes": [
+          38,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pum43p",
+    "name": "BWM Series",
+    "brand": "puma",
+    "priceCents": 15900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          43
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          42,
+          43
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          43,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pum745p",
+    "name": "Rider",
+    "brand": "puma",
+    "priceCents": 16900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pum64p",
+    "name": "Slip Stream",
+    "brand": "puma",
+    "priceCents": 19900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          40,
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pum84p",
+    "name": "Soft Ride",
+    "brand": "puma",
+    "priceCents": 20900,
+    "variants": [
+      {
+        "sizes": [
+          39,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          39,
+          41,
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pum99p",
+    "name": "Suède",
+    "brand": "puma",
+    "priceCents": 28900,
+    "variants": [
+      {
+        "sizes": [
+          38,
+          39,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          39,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pum09p",
+    "name": "Trinity",
+    "brand": "puma",
+    "priceCents": 14900,
+    "variants": [
+      {
+        "sizes": [
+          38,
+          39,
+          42,
+          43,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          39,
+          42,
+          43,
+          44,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          38,
+          39,
+          40,
+          42,
+          43,
+          44,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb43p",
+    "name": "BB 400",
+    "brand": "reebok",
+    "priceCents": 22900,
+    "variants": [
+      {
+        "sizes": [
+          42,
+          43,
+          44,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          42,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb745p",
+    "name": "Classic Nylon",
+    "brand": "reebok",
+    "priceCents": 16900,
+    "variants": [
+      {
+        "sizes": [
+          41,
+          42,
+          43,
+          44,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          41,
+          42,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb64p",
+    "name": "Club C",
+    "brand": "reebok",
+    "priceCents": 21900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          39
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb84p",
+    "name": "Club C Ground",
+    "brand": "reebok",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39,
+          40,
+          42,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40,
+          42,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb89p",
+    "name": "Glide Ripple",
+    "brand": "reebok",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          42,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          41,
+          42,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          42,
+          43,
+          44,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb08p",
+    "name": "Nano X 3",
+    "brand": "reebok",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          42,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          42,
+          44,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          40,
+          42,
+          43,
+          44,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb19p",
+    "name": "Nano X 4",
+    "brand": "reebok",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39,
+          40
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reb13p",
+    "name": "Royal",
+    "brand": "reebok",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39,
+          40,
+          43,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          39,
+          40,
+          41,
+          42,
+          43,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "und64p",
+    "name": "Curry",
+    "brand": "under-armour",
+    "priceCents": 21900,
+    "variants": [
+      {
+        "sizes": [
+          42,
+          43
+        ]
+      }
+    ]
+  },
+  {
+    "id": "und84p",
+    "name": "Flow Velocity",
+    "brand": "under-armour",
+    "priceCents": 20900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39
+        ]
+      },
+      {
+        "sizes": [
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "id": "und49p",
+    "name": "Infinite Elite",
+    "brand": "under-armour",
+    "priceCents": 29900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          39,
+          41,
+          44
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          39,
+          41,
+          42,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "id": "und490p",
+    "name": "Summit Trek",
+    "brand": "under-armour",
+    "priceCents": 29900,
+    "variants": [
+      {
+        "sizes": [
+          41,
+          42,
+          44,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          42,
+          44,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "und43p",
+    "name": "Reign Lifter",
+    "brand": "under-armour",
+    "priceCents": 23900,
+    "variants": [
+      {
+        "sizes": [
+          40,
+          42,
+          43,
+          44,
+          45
+        ]
+      },
+      {
+        "sizes": [
+          43,
+          44,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "id": "und745p",
+    "name": "Aurora",
+    "brand": "under-armour",
+    "priceCents": 26900,
+    "variants": [
+      {
+        "sizes": [
+          37,
+          38,
+          39
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38,
+          39,
+          40
+        ]
+      },
+      {
+        "sizes": [
+          37,
+          38
+        ]
+      }
+    ]
+  }
+]

@@ -7,11 +7,18 @@ import { colors } from "../constants/colors";
 import Details from "../screens/details";
 import Cart from "../screens/cart";
 import DrawerNavigator from "./DrawerNavigator";
+import HttpErrorModal from "../ui-components/modals/HttpErrorModal";
+import { useDispatch, useSelector } from "react-redux";
+import { setErrorHttp } from "../store/slices/errorSlice";
 
 const Stack = createNativeStackNavigator();
 
 export default function MainStackNavigator() {
+  const httpError = useSelector((state) => state.error.errorHttp);
+  const dispatch = useDispatch();
+  const closeHttpErrorModal = () => dispatch(setErrorHttp(false));
   return (
+    <>
     <Stack.Navigator initialRouteName="Login" screenOptions={{
       statusBarStyle: "dark",
       headerStyle: { backgroundColor: colors.LIGHT },
@@ -49,5 +56,7 @@ export default function MainStackNavigator() {
           ) : null,
         })} />
     </Stack.Navigator>
+    <HttpErrorModal isModalVisible={httpError} closeModal={closeHttpErrorModal} />
+    </>
   );
 }

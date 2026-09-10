@@ -6,7 +6,7 @@ const reactotron = Reactotron
   .setAsyncStorageHandler(AsyncStorage)
   .configure({ name: "Project Shoes" })
   .use(reactotronRedux())
-  .useReactNative()
+  .useReactNative({ asyncStorage: false })
   .connect();
 
 export default reactotron;

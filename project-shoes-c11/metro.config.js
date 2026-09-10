@@ -1,6 +1,7 @@
 const { getDefaultConfig } = require("expo/metro-config");
 
 const config = getDefaultConfig(__dirname);
+config.cacheVersion = `c11-asyncstorage-v1:${__dirname}`;
 const { transformer, resolver } = config;
 
 config.transformer = {

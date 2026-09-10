@@ -18,7 +18,7 @@
     "react-dom": "19.2.3",
     "react-native-web": "~0.21.0",
     "@expo/metro-runtime": "~57.0.15",
-    "@react-native-async-storage/async-storage": "2.2.0"
+    "@react-native-async-storage/async-storage": "3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

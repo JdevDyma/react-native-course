@@ -6,7 +6,7 @@ Copiez `.env.example` dans `.env` et renseignez la configuration de votre projet
 
 Installez les dépendances avec `npm ci` une fois le verrou présent. Utilisez une application de développement personnalisée (`npm run android` ou `npm run ios`). Reconstruisez cette application après un changement de dépendance native ou de plugin. Le splash natif se vérifie avec une application construite ; Expo Go n’en reproduit pas toutes les propriétés.
 
-Le sélecteur système sert au choix d’une photo ; aucune permission caméra ni microphone n’est demandée par sa configuration. L’authentification utilise le SDK Firebase et son stockage persistant sécurisé. Les fichiers REST conservés comme étapes pédagogiques ne sont pas le chemin d’authentification actif. Reactotron reste débranché du graphe de l’application pour éviter l’exposition des identifiants et des jetons.
+Le sélecteur système sert au choix d’une photo ; aucune permission caméra ni microphone n’est demandée par sa configuration. L’authentification utilise le SDK Firebase et son stockage persistant sécurisé. Les fichiers REST conservés comme étapes pédagogiques ne sont pas le chemin d’authentification actif. Le store charge Reactotron et ajoute son enhancer Redux uniquement lorsque `__DEV__` est vrai. Cette instrumentation de développement est distincte du stockage persistant de la session.
 
 L’animation de lancement se termine aussi sur demande de l’utilisateur, en cas d’erreur ou lorsque la réduction des animations est activée. Elle n’interrompt pas la restauration de session.
 
